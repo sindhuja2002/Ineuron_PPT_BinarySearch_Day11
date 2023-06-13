@@ -1,0 +1,21 @@
+#question 8
+from collections import Counter
+
+def intersect(nums1, nums2):
+    counter1 = Counter(nums1)
+    counter2 = Counter(nums2)
+
+    intersection = []
+    for num in counter1:
+        if num in counter2:
+            count = min(counter1[num], counter2[num])
+            intersection.extend([num] * count)
+
+    return intersection
+
+# Test cases
+print(intersect([1, 2, 2, 1], [2, 2]))  # Output: [2, 2]
+print(intersect([4, 9, 5], [9, 4, 9, 8, 4]))  # Output: [4, 9]
+
+#TC - O(m+n)
+#SC - O(m+n)
